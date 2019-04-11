@@ -1,0 +1,72 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+    <title>Guitar Studier</title>
+
+    <body>
+        <div>
+                <h1>
+                        <div id="output" ></div>
+                    </h1>
+                    <h2><div id="counter"></div></h2>
+                    <button id="random" style="width:200px;height:200px" onclick="JazzChords()">Press me for Jazz chords</button>
+                    </br>
+                    <!--<input type="checkbox" name="AllStrings"> All strings<br>
+                    
+                    <button id="failed" onclick="Failed()">Failed</button>
+                    <ul id="fails"></ul>
+                    -->
+        </div>
+        <div>
+                <h1>
+                        <div id="output2" ></div>
+                    </h1>
+                    <h2><div id="counter2"></div></h2>
+                    <button id="random2" style="width:200px;height:200px" onclick="Triads()">Press me for Triads</button>
+                    </br>
+                    <!--<input type="checkbox" name="AllStrings2"> All strings<br>
+                    
+                    <button id="failed" onclick="Failed()">Failed</button>
+                    <ul id="fails"></ul>
+                    -->
+        </div>
+
+        
+    </body>
+
+    <script>
+    function JazzChords(){
+    var notes = ["A","A#","A", "Bb","B","C", "C#", "Db","D","D#","Eb","E","F","F#", "Gb", "G","G#", "Ab"];
+    var strings = ["6th", "5th", "4th", "3rd", "2nd", "1st"];
+    var chords = ["maj","min","Maj7","m7", "7", "m7/b5", "m6"];
+    var count = Number($("#counter").html());
+    $("#counter").html(count+1);
+    var noteRand = notes[Math.floor(Math.random() * notes.length)];
+    var stringRand = strings[Math.floor(Math.random() * strings.length) ];
+    var chordRand = chords[Math.floor(Math.random() * chords.length) ];
+    $("#output").html(noteRand + chordRand + " with the root on the "+ stringRand);
+    }
+
+    function Triads(){
+    var notes = ["A","A#","A", "Bb","B","C", "C#", "Db","D","D#","Eb","E","F","F#", "Gb", "G","G#", "Ab"];
+    var strings = ["6th", "5th", "4th", "3rd", "2nd", "1st"];
+    var chords = ["maj","min"]//,"Maj7","m7", "7", "m7/b5", "m6"];
+    var count = Number($("#counter").html());
+    $("#counter").html(count+1);
+    var noteRand = notes[Math.floor(Math.random() * notes.length)];
+    var stringRand = strings[Math.floor(Math.random() * strings.length) ];
+    var chordRand = chords[Math.floor(Math.random() * chords.length) ];
+    $("#output").html(noteRand+ chordRand + " with the root on the "+ stringRand);
+    }
+
+    function Failed()
+    {
+
+  var ul = document.getElementById("fails");
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode($("#output").html()));
+  ul.appendChild(li);
+
+    }
+
+    </script>
+</html>
