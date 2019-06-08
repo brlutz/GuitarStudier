@@ -7,6 +7,7 @@ import { JazzComponent } from './jazz/jazz.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' }, pathMatch: 'full'  },
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
     AppComponent,
     JazzComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
