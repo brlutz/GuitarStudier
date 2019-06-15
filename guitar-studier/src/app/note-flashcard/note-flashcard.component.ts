@@ -7,19 +7,18 @@ declare var Vex: any;
 })
 export class NoteFlashcardComponent implements OnInit {
   public VF;
-  constructor() { }
+  constructor() { this.VF = Vex.Flow; }
 
   ngOnInit() {
     this.SightReading();
   }
 
   SightReading() {
-    const VF = Vex.Flow;
 
     // Create an SVG renderer and attach it to the DIV element named "boo".
     const div = document.getElementById('boo');
     div.innerHTML = '';
-    const renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+    const renderer = new this.VF.Renderer(div, this.VF.Renderer.Backends.SVG);
 
     // Configure the rendering context.
     renderer.resize(500, 500);
@@ -27,7 +26,7 @@ export class NoteFlashcardComponent implements OnInit {
     context.setFont('Arial', 10, '').setBackgroundFillStyle('#eed');
 
     // Create a stave of width 400 at position 10, 40 on the canvas.
-    const stave = new VF.Stave(10, 40, 400);
+    const stave = new this.VF.Stave(10, 40, 400);
 
     // Add a clef and time signature.
     stave.addClef('treble').addTimeSignature('4/4');
@@ -37,25 +36,25 @@ export class NoteFlashcardComponent implements OnInit {
 
     const notes = [
       // A quarter-note C.
-      new VF.StaveNote({ clef: 'treble', keys: [this.getKeys()], duration: 'q' }),
+     this.getNote(),
 
-      // A quarter-note D.
-      new VF.StaveNote({ clef: 'treble', keys: ['d/4'], duration: 'q' }),
+    // A quarter-note D.
+      new this.VF.StaveNote({ clef: 'treble', keys: ['d/4'], duration: 'q' }),
 
       // A quarter-note rest. Note that the key (b/4) specifies the vertical
       // position of the rest.
-      new VF.StaveNote({ clef: 'treble', keys: ['b/4'], duration: 'qr' }),
+      new this.VF.StaveNote({ clef: 'treble', keys: ['b/4'], duration: 'qr' }),
 
       // A C-Major chord.
-      new VF.StaveNote({ clef: 'treble', keys: ['c/4', 'e/4', 'g/4'], duration: 'q' })
+      new this.VF.StaveNote({ clef: 'treble', keys: ['c/4', 'e/4', 'g/4'], duration: 'q' })
     ];
 
     // Create a voice in 4/4 and add above notes
-    const voice = new VF.Voice({ num_beats: 4, beat_value: 4 });
+    const voice = new this.VF.Voice({ num_beats: 4, beat_value: 4 });
     voice.addTickables(notes);
 
     // Format and justify the notes to 400 pixels.
-    const formatter = new VF.Formatter().joinVoices([voice]).format([voice], 400);
+    const formatter = new this.VF.Formatter().joinVoices([voice]).format([voice], 400);
 
     // Render voice
     voice.draw(context, stave);
@@ -64,19 +63,34 @@ export class NoteFlashcardComponent implements OnInit {
     stave.setContext(context).draw();
   }
 
-  getNotes() {
+  getNote() {
+    const note = new this.VF.StaveNote({ clef: 'treble', keys: [this.getKeys()], duration: 'q' });
+    const rand = Math.floor(Math.random() * 3);
+
+    if (rand === 0) {
+      note.addAccidental(0, new this.VF.Accidental('#'));
+    } else if (rand === 1) {
+      note.addAccidental(0, new this.VF.Accidental('b'));
+    }
+
+    return note;
+  }
+  getNoteValues() {
     const octave = '4';
-    const notesStrings = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+
+    // tslint:disable-next-line:max-line-length
+    const notesStrings = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'a#', 'b#', 'c#', 'd#', 'e#', 'f#', 'g#', 'ab', 'bb', 'cb', 'db', 'eb', 'fb', 'gb'];
 
     return notesStrings[Math.floor(Math.random() * notesStrings.length)];
   }
 
   getKeys() {
-    return this.getNotes() + '/' + this.getOctave();
+    return this.getNoteValues() + '/' + this.getOctave();
   }
 
   getOctave() {
-    return '4';
+    const octaves = ['3', '4', '5'];
+    return octaves[Math.floor(Math.random() * octaves.length)];
   }
 
 }
