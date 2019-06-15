@@ -37,16 +37,9 @@ export class NoteFlashcardComponent implements OnInit {
     const notes = [
       // A quarter-note C.
      this.getNote(),
-
-    // A quarter-note D.
-      new this.VF.StaveNote({ clef: 'treble', keys: ['d/4'], duration: 'q' }),
-
-      // A quarter-note rest. Note that the key (b/4) specifies the vertical
-      // position of the rest.
-      new this.VF.StaveNote({ clef: 'treble', keys: ['b/4'], duration: 'qr' }),
-
-      // A C-Major chord.
-      new this.VF.StaveNote({ clef: 'treble', keys: ['c/4', 'e/4', 'g/4'], duration: 'q' })
+     this.getNote(),
+     this.getNote(),
+     this.getNote()
     ];
 
     // Create a voice in 4/4 and add above notes
@@ -89,7 +82,7 @@ export class NoteFlashcardComponent implements OnInit {
   }
 
   getOctave() {
-    const octaves = ['3', '4', '5'];
+    const octaves = ['4', '5'];
     return octaves[Math.floor(Math.random() * octaves.length)];
   }
 
