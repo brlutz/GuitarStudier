@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { TriadsComponent } from './triads/triads.component';
 import { NoteFlashcardComponent } from './note-flashcard/note-flashcard.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'jazz', component: JazzComponent, data: { title: 'Jazz' }  },
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(
       appRoutes,
-    )
+    ),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

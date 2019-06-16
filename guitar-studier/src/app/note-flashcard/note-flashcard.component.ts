@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DebugElement } from '@angular/core';
 declare var Vex: any;
 @Component({
   selector: 'app-note-flashcard',
@@ -7,11 +7,52 @@ declare var Vex: any;
 })
 export class NoteFlashcardComponent implements OnInit {
   public VF;
+  name = 'Angular 6';
+  marked = false;
+  theCheckbox = false;
+
+  notesStrings = [];
+  octaves = [];
+  // tslint:disable-next-line:max-line-length
+  // notesStrings = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'a#', 'b#', 'c#', 'd#', 'e#', 'f#', 'g#', 'ab', 'bb', 'cb', 'db', 'eb', 'fb', 'gb'];
+
   constructor() { this.VF = Vex.Flow; }
 
   ngOnInit() {
     this.SightReading();
   }
+
+  toggleNote(e) {
+
+    this.marked = e.target.checked;
+    console.log('dfdds');
+    console.log(e.target.value);
+    if (e.target.checked && !this.notesStrings.includes(e.target.value)) {
+      this.notesStrings.push(e.target.value);
+    } else if (!e.target.checked && this.notesStrings.includes(e.target.value)) {
+      // tslint:disable-next-line:only-arrow-functions
+      this.notesStrings = this.notesStrings.filter( function(value, index, arr) {
+        return value !== e.target.value;
+    });
+    }
+
+  }
+  toggleOctave(e) {
+
+    this.marked = e.target.checked;
+    console.log('dfdds');
+    console.log(e.target.value);
+    if (e.target.checked && !this.octaves.includes(e.target.value)) {
+      this.octaves.push(e.target.value);
+    } else if (!e.target.checked && this.octaves.includes(e.target.value)) {
+      // tslint:disable-next-line:only-arrow-functions
+      this.octaves = this.octaves.filter( function(value, index, arr) {
+        return value !== e.target.value;
+    });
+    }
+
+  }
+
 
   SightReading() {
 
@@ -21,7 +62,7 @@ export class NoteFlashcardComponent implements OnInit {
     const renderer = new this.VF.Renderer(div, this.VF.Renderer.Backends.SVG);
 
     // Configure the rendering context.
-    renderer.resize(500, 500);
+    renderer.resize(400, 200);
     const context = renderer.getContext();
     context.setFont('Arial', 10, '').setBackgroundFillStyle('#eed');
 
@@ -61,29 +102,28 @@ export class NoteFlashcardComponent implements OnInit {
     const rand = Math.floor(Math.random() * 3);
 
     if (rand === 0) {
-      note.addAccidental(0, new this.VF.Accidental('#'));
+     // note.addAccidental(0, new this.VF.Accidental('#'));
     } else if (rand === 1) {
-      note.addAccidental(0, new this.VF.Accidental('b'));
+     // note.addAccidental(0, new this.VF.Accidental('b'));
     }
 
     return note;
   }
   getNoteValues() {
-    const octave = '4';
-
     // tslint:disable-next-line:max-line-length
-    const notesStrings = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'a#', 'b#', 'c#', 'd#', 'e#', 'f#', 'g#', 'ab', 'bb', 'cb', 'db', 'eb', 'fb', 'gb'];
-
-    return notesStrings[Math.floor(Math.random() * notesStrings.length)];
+    return this.notesStrings[Math.floor(Math.random() * this.notesStrings.length)];
   }
 
   getKeys() {
-    return this.getNoteValues() + '/' + this.getOctave();
+    const key = this.getNoteValues() + '/' + this.getOctave();
+    console.log(key);
+    return key;
   }
 
   getOctave() {
-    const octaves = ['4', '5'];
-    return octaves[Math.floor(Math.random() * octaves.length)];
+    const octaveRaw = this.octaves[Math.floor(Math.random() * this.octaves.length)];
+    // do this to strip the character '' away
+    return octaveRaw.substring(1, octaveRaw.length - 1);
   }
 
 }

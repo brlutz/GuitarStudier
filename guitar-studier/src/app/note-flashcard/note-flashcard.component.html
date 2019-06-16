@@ -1,14 +1,64 @@
 <div class="container">
   <div class="row">
-      <div class="col-md-12">
-        <div id="boo"></div>
-          <h2>
-              <div id="counter" class="text-center"></div>
-          </h2>
-          <div class="text-center">
-              <button id="random" style="width:200px;height:200px" (click)="SightReading()">Press me for notes</button>
-          </div> 
-
+    <div class="col-md-12">
+      <div id="boo"></div>
+      <h2>
+        <div id="counter" class="text-center"></div>
+      </h2>
+      <div class="text-center">
+        <button id="random" style="width:200px;height:200px" (click)="SightReading()">Press me for notes</button>
       </div>
+      <div>
+
+        <label>
+          <div>
+            <input type="checkbox" value="a" data-md-icheck (change)="toggleNote($event)" />
+            <span>A</span>
+          </div>
+        </label>
+        <label>
+          <input type="checkbox" value="b" data-md-icheck (change)="toggleNote($event)" />
+          <span>B</span>
+        </label>
+        <label>
+          <input type="checkbox" value="c" data-md-icheck (change)="toggleNote($event)" />
+          <span>C</span>
+        </label>
+        <label> <input type="checkbox" value="d" data-md-icheck (change)="toggleNote($event)" />
+          <span>D</span>
+        </label>
+        <label>
+        <input type="checkbox" value="e" data-md-icheck (change)="toggleNote($event)" />
+        <span>E</span>
+        </label>
+        <label>
+        <input type="checkbox" value="f" data-md-icheck (change)="toggleNote($event)" />
+        <span>F</span>
+        </label>
+        <label>
+          <input type="checkbox" value="g" data-md-icheck (change)="toggleNote($event)" />
+          <span>G</span>
+        </label>
+      </div>
+      <div>        <label>
+          <div>
+            <input type="checkbox" value="'3'" data-md-icheck (change)="toggleOctave($event)" />
+            <span>3</span>
+          </div>
+        </label>
+        <label>
+            <div>
+              <input type="checkbox" value="'4'" data-md-icheck (change)="toggleOctave($event)" />
+              <span>4</span>
+            </div>
+        </label>
+        <label>
+            <div>
+              <input type="checkbox" value="'5'" data-md-icheck (change)="toggleOctave($event)" />
+              <span>5</span>
+            </div>
+        </label>
+      </div>
+    </div>
   </div>
 </div>
