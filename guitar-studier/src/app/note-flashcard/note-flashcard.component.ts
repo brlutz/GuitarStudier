@@ -11,10 +11,14 @@ export class NoteFlashcardComponent implements OnInit {
   marked = false;
   theCheckbox = false;
 
-  notesStrings = [];
-  octaves = [];
+
+  octaves = ['4', '5'];
+  allOctaves = ['3', '4', '5'];
+  Arr = Array; // Array type captured in a variable
+  num = 20;
   // tslint:disable-next-line:max-line-length
-  // notesStrings = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'a#', 'b#', 'c#', 'd#', 'e#', 'f#', 'g#', 'ab', 'bb', 'cb', 'db', 'eb', 'fb', 'gb'];
+  allNotes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'A#', 'B#', 'C#', 'D#', 'E#', 'F#', 'G#', 'Ab', 'Bb', 'Cb', 'Db', 'Eb', 'Fb', 'Gb'];
+  notesStrings = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'A#', 'B#', 'C#', 'D#', 'E#', 'F#', 'Gg#', 'Ab', 'Bb', 'Cb', 'Db', 'Eb', 'Fb', 'Gb'];
 
   constructor() { this.VF = Vex.Flow; }
 
@@ -62,7 +66,7 @@ export class NoteFlashcardComponent implements OnInit {
     const renderer = new this.VF.Renderer(div, this.VF.Renderer.Backends.SVG);
 
     // Configure the rendering context.
-    renderer.resize(400, 200);
+    renderer.resize(450, 200);
     const context = renderer.getContext();
     context.setFont('Arial', 10, '').setBackgroundFillStyle('#eed');
 
@@ -98,16 +102,23 @@ export class NoteFlashcardComponent implements OnInit {
   }
 
   getNote() {
-    const note = new this.VF.StaveNote({ clef: 'treble', keys: [this.getKeys()], duration: 'q' });
-    const rand = Math.floor(Math.random() * 3);
 
-    if (rand === 0) {
-     // note.addAccidental(0, new this.VF.Accidental('#'));
-    } else if (rand === 1) {
-     // note.addAccidental(0, new this.VF.Accidental('b'));
+    const rawKey = this.getKeys();
+    console.log('rawKey', rawKey);
+    let vfNote = null;
+    if (rawKey.includes('b')) {
+      const key = rawKey.replace('b', '').toLocaleLowerCase();
+      console.log(key);
+      vfNote = new this.VF.StaveNote({ clef: 'treble', keys: [key], duration: 'q' }).addAccidental(0, new this.VF.Accidental('b'));
+    } else if (rawKey.includes('#')) {
+      const key = rawKey.replace('#', '').toLocaleLowerCase();
+      console.log(key);
+      vfNote = new this.VF.StaveNote({ clef: 'treble', keys: [key], duration: 'q' }).addAccidental(0, new this.VF.Accidental('#'));
+    } else {
+      vfNote = new this.VF.StaveNote({ clef: 'treble', keys: [rawKey], duration: 'q' });
     }
 
-    return note;
+    return vfNote;
   }
   getNoteValues() {
     // tslint:disable-next-line:max-line-length
@@ -116,7 +127,7 @@ export class NoteFlashcardComponent implements OnInit {
 
   getKeys() {
     const key = this.getNoteValues() + '/' + this.getOctave();
-    console.log(key);
+    // console.log(key);
     return key;
   }
 
