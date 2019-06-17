@@ -12,13 +12,13 @@ export class NoteFlashcardComponent implements OnInit {
   theCheckbox = false;
 
 
-  octaves = ['4', '5'];
+  octaves = ['3', '4', '5'];
   allOctaves = ['3', '4', '5'];
   Arr = Array; // Array type captured in a variable
   num = 20;
   // tslint:disable-next-line:max-line-length
   allNotes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'A#', 'B#', 'C#', 'D#', 'E#', 'F#', 'G#', 'Ab', 'Bb', 'Cb', 'Db', 'Eb', 'Fb', 'Gb'];
-  notesStrings = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'A#', 'B#', 'C#', 'D#', 'E#', 'F#', 'Gg#', 'Ab', 'Bb', 'Cb', 'Db', 'Eb', 'Fb', 'Gb'];
+  notesStrings = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'A#', 'B#', 'C#', 'D#', 'E#', 'F#', 'G#', 'Ab', 'Bb', 'Cb', 'Db', 'Eb', 'Fb', 'Gb'];
 
   constructor() { this.VF = Vex.Flow; }
 
