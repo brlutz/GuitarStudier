@@ -29,8 +29,6 @@ export class NoteFlashcardComponent implements OnInit {
   toggleNote(e) {
 
     this.marked = e.target.checked;
-    console.log('dfdds');
-    console.log(e.target.value);
     if (e.target.checked && !this.notesStrings.includes(e.target.value)) {
       this.notesStrings.push(e.target.value);
     } else if (!e.target.checked && this.notesStrings.includes(e.target.value)) {
@@ -44,8 +42,6 @@ export class NoteFlashcardComponent implements OnInit {
   toggleOctave(e) {
 
     this.marked = e.target.checked;
-    console.log('dfdds');
-    console.log(e.target.value);
     if (e.target.checked && !this.octaves.includes(e.target.value)) {
       this.octaves.push(e.target.value);
     } else if (!e.target.checked && this.octaves.includes(e.target.value)) {
@@ -104,15 +100,15 @@ export class NoteFlashcardComponent implements OnInit {
   getNote() {
 
     const rawKey = this.getKeys();
-    console.log('rawKey', rawKey);
+
     let vfNote = null;
     if (rawKey.includes('b')) {
       const key = rawKey.replace('b', '').toLocaleLowerCase();
-      console.log(key);
+
       vfNote = new this.VF.StaveNote({ clef: 'treble', keys: [key], duration: 'q' }).addAccidental(0, new this.VF.Accidental('b'));
     } else if (rawKey.includes('#')) {
       const key = rawKey.replace('#', '').toLocaleLowerCase();
-      console.log(key);
+
       vfNote = new this.VF.StaveNote({ clef: 'treble', keys: [key], duration: 'q' }).addAccidental(0, new this.VF.Accidental('#'));
     } else {
       vfNote = new this.VF.StaveNote({ clef: 'treble', keys: [rawKey], duration: 'q' });
