@@ -8,9 +8,44 @@
                 <div id="counter" class="text-center">{{count}}</div>
             </h2>
             <div class="text-center">
-                <button id="random" style="width:200px;height:200px" (click)="JazzChords()">Press me for Jazz chords</button>
-            </div> 
+                <button id="random" style="width:200px;height:200px" (click)="JazzChords()">Press me for Jazz
+                    chords</button>
+            </div>
 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"> Notes:
+            <span *ngFor="let note of allNotes">
+                <label>
+                    <span class="right-spaced">
+                        <span>{{note}}</span>
+                        <input type="checkbox" checked value='{{note}}' data-md-icheck (change)="toggleNote($event)" />
+                    </span>
+                </label>
+            </span>
+        </div>
+        <div class="col-md-12"> Guitar Strings:
+            <span *ngFor="let guitarString of allGuitarStrings">
+                <label>
+                    <span class="right-spaced">
+                        <span>{{guitarString}}</span>
+                        <input type="checkbox" checked value='{{guitarString}}' data-md-icheck
+                            (change)="toggleString($event)" />
+                    </span>
+                </label>
+            </span>
+        </div>
+        <div class="col-md-12"> Chords:
+            <span *ngFor="let chord of allChords">
+                <label>
+                    <span class="right-spaced">
+                        <span>{{chord}}</span>
+                        <input type="checkbox" checked value='{{chord}}' data-md-icheck
+                            (change)="toggleChord($event)" />
+                    </span>
+                </label>
+            </span>
         </div>
     </div>
 </div>
