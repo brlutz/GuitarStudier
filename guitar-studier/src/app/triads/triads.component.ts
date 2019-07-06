@@ -14,8 +14,8 @@ export class TriadsComponent implements OnInit {
   Arr = Array; // Array type captured in a variable
   num = 20;
   // tslint:disable-next-line:max-line-length
-  allGuitarStrings = ['1', '2', '3', '4', '5']; // ['6th', '5th', '4th', '3rd', '2nd', '1st'];
-  guitarStrings = ['1', '2', '3', '4', '5'];
+  allGuitarStrings = ['1', '2', '3', '4', '5', '6']; // ['6th', '5th', '4th', '3rd', '2nd', '1st'];
+  guitarStrings = ['1', '2', '3', '4', '5', '6'];
 
   notes = ['Ab', 'A', 'A#', 'Bb', 'B', 'C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#'];
   allNotes = ['Ab', 'A', 'A#', 'Bb', 'B', 'C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#'];
@@ -37,7 +37,7 @@ Triads() {
   const noteRand = this.notes[Math.floor(Math.random() * this.notes.length)];
   const stringRand = this.guitarStrings[Math.floor(Math.random() * this.guitarStrings.length)];
   const chordRand = this.chords[Math.floor(Math.random() * this.chords.length)];
-  this.triad = noteRand + chordRand + ' with the root on the ' + stringRand;
+  this.triad = noteRand + chordRand + ' root on the ' + stringRand;
 }
 
 toggleString(e) {

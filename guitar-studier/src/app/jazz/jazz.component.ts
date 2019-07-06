@@ -39,7 +39,7 @@ export class JazzComponent implements OnInit {
     const noteRand = this.notes[Math.floor(Math.random() * this.notes.length)];
     const stringRand = this.guitarStrings[Math.floor(Math.random() * this.guitarStrings.length)];
     const chordRand = this.chords[Math.floor(Math.random() * this.chords.length)];
-    this.jazzChord = noteRand + chordRand + ' with the root on the ' + stringRand;
+    this.jazzChord = noteRand + chordRand + ' root on the ' + stringRand;
   }
 
   toggleString(e) {
