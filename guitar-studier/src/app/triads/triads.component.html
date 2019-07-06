@@ -2,58 +2,120 @@
     <div class="row">
         <div class="col-md-8">
             <p class="lead flashcard"><span class="" id="output">{{triad}}</span></p>
-            
-                <div id="counter" class="">Flashcards seen: {{count}}</div>
-            
+
+            <div id="counter" class="">Flashcards seen: {{count}}</div>
+
             <div class="">
                 <button id="random" style="width:200px;height:200px" (click)="Triads()">Press me for Triads</button>
-            </div> 
+            </div>
+
+            <div>Guitar Strings:
+                <span *ngFor="let guitarString of allGuitarStrings">
+                    <label>
+                        <span class="right-spaced">
+                            <span>{{guitarString}}</span>
+                            <input type="checkbox" checked value='{{guitarString}}' data-md-icheck
+                                (change)="toggleString($event)" />
+                        </span>
+                    </label>
+                </span>
+            </div>
+            <div> Notes:
+                <span *ngFor="let note of allNotes">
+                    <label>
+                        <span class="right-spaced">
+                            <span>{{note}}</span>
+                            <input type="checkbox" checked value='{{note}}' data-md-icheck
+                                (change)="toggleNote($event)" />
+                        </span>
+                    </label>
+                </span>
+            </div>
+            <div> Chords:
+                <span *ngFor="let chord of allChords">
+                    <label>
+                        <span class="right-spaced">
+                            <span>{{chord}}</span>
+                            <input type="checkbox" checked value='{{chord}}' data-md-icheck
+                                (change)="toggleChord($event)" />
+                        </span>
+                    </label>
+                </span>
+            </div>
 
         </div>
         <div class="col-md-4">
-            <h1 class="content-lead"> 
-                How To Learn Guitar Triads:
+            <h1 class="content-lead">
+            Guitar Triad Cheat Sheet:
             </h1>
-            
-                <div>
-                    Learing Guitar Triads
-                </div>
 
-
+            <div>
+                Guitar Triads:
+                <ul>
+                    <li>Major:
+                        <ul>
+                            <li>1,3,5</li>
+                        </ul>
+                    </li>
+                    <li>Minor:  <ul>
+                            <li>1,min3,5</li>
+                        </ul>
+                    </li>
+                    <li>Major 7 (△):  
+                        <ul>
+                            <li>3,5,7</li>
+                        </ul>
+                    </li>
+                    <li>Minor 7:  
+                        <ul>
+                            <li>min3,5,min7</li>
+                        </ul>
+                    </li>
+                    <li>Dominant 7: 
+                        <ul>
+                            <li>3,5,min7 </li>
+                        </ul>
+                    </li>
+                    <li>Minor 7/b5 (⦰): 
+                        <ul>
+                            <li> min3, dim5, min7</li>
+                        </ul>
+                    </li>
+                    <li>Minor 6:  
+                        <ul>
+                            <li>min3,5,6</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12"> Notes:
-            <span *ngFor="let note of allNotes">
-                <label>
-                    <span class="right-spaced">
-                        <span>{{note}}</span>
-                        <input type="checkbox" checked value='{{note}}' data-md-icheck (change)="toggleNote($event)" />
-                    </span>
-                </label>
-            </span>
-        </div>
-        <div class="col-md-12"> Guitar Strings:
-            <span *ngFor="let guitarString of allGuitarStrings">
-                <label>
-                    <span class="right-spaced">
-                        <span>{{guitarString}}</span>
-                        <input type="checkbox" checked value='{{guitarString}}' data-md-icheck
-                            (change)="toggleString($event)" />
-                    </span>
-                </label>
-            </span>
-        </div>
-        <div class="col-md-12"> Chords:
-            <span *ngFor="let chord of allChords">
-                <label>
-                    <span class="right-spaced">
-                        <span>{{chord}}</span>
-                        <input type="checkbox" checked value='{{chord}}' data-md-icheck
-                            (change)="toggleChord($event)" />
-                    </span>
-                </label>
-            </span>
-        </div>
+            <div class="col-md-12">
+                <h2>
+                    How to use guitar triads:
+                </h2>
+                <p>
+                    Triads are important as they allow you to find chord tones really quickly. This helps you learn the
+                    fretboard and be able to find notes on the fretboard when soloing over chords. This means you can now
+                    break out of the pentatonic box when soloing, simply focus on playing the notes in the triad over the
+                    related chord in your progression.
+                </p>
+                <p class="lead">
+                    Practice Tips:
+                </p>
+                <p>
+                    Like a lot of intermediate guitar pratice tips, there isn't a lot of magic in this, just practice. Being a great guitarist
+                    requires knowing the fretboard at the same level you understand what word to use when you're speaking, or
+                    what key to hit on the keyboard when typing, or what button to hit on a controller when playing a game.
+                </p>
+                <p>
+                    Set yourself a goal in exercises or time. Something like 50 triads or 30 minutes a day. Set yourself a schedule,
+                    get some free time and practice without distractions. You'll start slow at first, but slowly, with practice, will
+                    increase the speed you're able to play these. Getting fast will take practice, but that's all it takes! Practice consistency
+                    and you'll see consistent results.
+                </p>
+
+            </div>
     </div>
 </div>
