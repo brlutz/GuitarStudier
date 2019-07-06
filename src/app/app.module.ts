@@ -11,6 +11,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { TriadsComponent } from './triads/triads.component';
 import { NoteFlashcardComponent } from './note-flashcard/note-flashcard.component';
 import { FormsModule } from '@angular/forms';
+import { ChordTabComponent } from './chord-tab/chord-tab.component';
 
 const appRoutes: Routes = [
   { path: 'jazz', component: JazzComponent, data: { title: 'Jazz' }  },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     NavBarComponent,
     TriadsComponent,
-    NoteFlashcardComponent
+    NoteFlashcardComponent,
+    ChordTabComponent
   ],
   imports: [
     BrowserModule,

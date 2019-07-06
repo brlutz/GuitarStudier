@@ -10,8 +10,8 @@ export class JazzComponent implements OnInit {
   count;
   jazzChord;
 
-  chords = ['maj', 'min']; // ,'Maj7','m7', '7', 'm7/b5', 'm6'];
-  allChords = ['maj', 'min']; // ,'Maj7','m7', '7', 'm7/b5', 'm6'];
+  chords = ['maj', 'min', 'Maj7', 'm7', '7', 'm7/b5', 'm6'];
+  allChords = ['maj', 'min', 'Maj7', 'm7', '7', 'm7/b5', 'm6'];
   Arr = Array; // Array type captured in a variable
   num = 20;
   // tslint:disable-next-line:max-line-length

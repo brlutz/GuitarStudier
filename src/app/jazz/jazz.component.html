@@ -75,7 +75,8 @@
 
                 </span>
             </div>
-            <div> <p> Notes:</p>
+            <div>
+                <p> Notes:</p>
                 <span class="col-sm-1" *ngFor="let note of allNotes">
                     <label>
                         <span class="right-spaced">
@@ -86,7 +87,8 @@
                     </label>
                 </span>
             </div>
-            <div> <p>Chords:</p>
+            <div>
+                <p>Chords:</p>
                 <span class="col-sm-1" *ngFor="let chord of allChords">
                     <label>
                         <span class="right-spaced">
@@ -101,79 +103,181 @@
         </div>
         <div class="col-md-4">
             <h1 class="content-lead">
-                Guitar Triad Cheat Sheet:
+                Jazz Chords <br/> Cheat Sheet:
             </h1>
 
             <div>
-                Guitar Triads:
-                <ul>
-                    <li>Major:
-                        <ul>
-                            <li>1,3,5</li>
-                        </ul>
-                    </li>
-                    <li>Minor: <ul>
-                            <li>1,min3,5</li>
-                        </ul>
-                    </li>
-                    <li>Major 7 (△):
-                        <ul>
-                            <li>3,5,7</li>
-                        </ul>
-                    </li>
-                    <li>Minor 7:
-                        <ul>
-                            <li>min3,5,min7</li>
-                        </ul>
-                    </li>
-                    <li>Dominant 7:
-                        <ul>
-                            <li>3,5,min7 </li>
-                        </ul>
-                    </li>
-                    <li>Minor 7/b5 (⦰):
-                        <ul>
-                            <li> min3, dim5, min7</li>
-                        </ul>
-                    </li>
-                    <li>Minor 6:
-                        <ul>
-                            <li>min3,5,6</li>
-                        </ul>
-                    </li>
-                </ul>
+                Jazz Chords:
+                Root note is marked with 'r'
+                All other notes are relative to the root
+                <div>
+                    <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#major" role="button"
+                            aria-expanded="false" aria-controls="major">
+                            Major
+                        </a>
+                    </p>
+                    <div class="collapse" id="major">
+                        <div class="card card-body">
+                            <span class="tab">
+                                <div>e|-1r--1----------|</div>
+                                <div>B|-1---3----------|</div>
+                                <div>G|-2---3r---------|</div>
+                                <div>D|-3---3----------|</div>
+                                <div>A|-3---1r---------|</div>
+                                <div>E|-1r--X----------|</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#minor" role="button"
+                            aria-expanded="false" aria-controls="minor">
+                            Minor
+                        </a>
+                    </p>
+                    <div class="collapse" id="minor">
+                        <div class="card card-body">
+                            <span class="tab">
+                                <div>e|--------------|</div>
+                                <div>B|--------------|</div>
+                                <div>G|--------------|</div>
+                                <div>D|--------------|</div>
+                                <div>A|--------------|</div>
+                                <div>E|--------------|</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#maj7" role="button"
+                            aria-expanded="false" aria-controls="maj7">
+                            Major 7
+                        </a>
+                    </p>
+                    <div class="collapse" id="maj7">
+                        <div class="card card-body">
+                            <span class="tab">
+                                <div>e|--------------|</div>
+                                <div>B|--------------|</div>
+                                <div>G|--------------|</div>
+                                <div>D|--------------|</div>
+                                <div>A|--------------|</div>
+                                <div>E|--------------|</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#min7" role="button"
+                            aria-expanded="false" aria-controls="min7">
+                            Minor 7
+                        </a>
+                    </p>
+                    <div class="collapse" id="min7">
+                        <div class="card card-body">
+                            <span class="tab">
+                                <div>e|--------------|</div>
+                                <div>B|--------------|</div>
+                                <div>G|--------------|</div>
+                                <div>D|--------------|</div>
+                                <div>A|--------------|</div>
+                                <div>E|--------------|</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#dom7" role="button"
+                            aria-expanded="false" aria-controls="dom7">
+                            Dominant 7
+                        </a>
+                    </p>
+                    <div class="collapse" id="dom7">
+                        <div class="card card-body">
+                            <span class="tab">
+                                <div>e|--------------|</div>
+                                <div>B|--------------|</div>
+                                <div>G|--------------|</div>
+                                <div>D|--------------|</div>
+                                <div>A|--------------|</div>
+                                <div>E|--------------|</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#halfDom7" role="button"
+                            aria-expanded="false" aria-controls="halfDom7">
+                            Minor 7/b5
+                        </a>
+                    </p>
+                    <div class="collapse" id="halfDom7">
+                        <div class="card card-body">
+                            <span class="tab">
+                                <div>e|--------------|</div>
+                                <div>B|--------------|</div>
+                                <div>G|--------------|</div>
+                                <div>D|--------------|</div>
+                                <div>A|--------------|</div>
+                                <div>E|--------------|</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#min6" role="button"
+                            aria-expanded="false" aria-controls="min6">
+                            Minor 6
+                        </a>
+                    </p>
+                    <div class="collapse" id="min6">
+                        <div class="card card-body">
+                            <span class="tab">
+                                <div>e|--------------|</div>
+                                <div>B|--------------|</div>
+                                <div>G|--------------|</div>
+                                <div>D|--------------|</div>
+                                <div>A|--------------|</div>
+                                <div>E|--------------|</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <h2>
-                How to use guitar triads:
+                How to use jazz chords:
             </h2>
             <p>
-                Triads are important as they allow you to find chord tones really quickly. This helps you learn the
-                fretboard and be able to find notes on the fretboard when soloing over chords. This means you can now
-                break out of the pentatonic box when soloing: simply focus on playing the notes in the triad over the
-                related chord in your progression.
+                Jazz Chords are amazing, becuase they allow you to instantly play along with many jazz greats. You can
+                start to play along to jazz backing tracks like
+                <a href="https://www.youtube.com/watch?v=Xjf2kiDO19Y" target="_blank">Autumn Leaves</a>. Not only are
+                you playing Jazz, but you're also learning the fretboard.
+                Knowing where the chords are allows you to use the chord tones when you're soloing over a progression.
             </p>
             <p class="lead">
                 Practice Tips:
             </p>
             <p>
-                Like a lot of intermediate guitar pratice tips, there isn't a lot of magic in this, just practice. Being
-                a great guitarist
-                requires knowing the fretboard at the same level you understand what word to use when you're speaking,
-                or
-                what key to hit on the keyboard when typing, or what button to hit on a controller when playing a game.
+                Like a lot of intermediate guitar pratice tips, there isn't a lot of magic in this, just practice. Find
+                songs you love and learn to apply these chords!
             </p>
             <p>
-                Set yourself a goal in exercises or time. Something like 50 triads or 30 minutes a day. Set yourself a
-                schedule,
-                get some free time and practice without distractions. You'll start slow at first, but slowly, with
-                practice, will
-                increase the speed you're able to play these. Getting fast will take practice, but that's all it takes!
-                Practice consistency
-                and you'll see consistent results.
+                Pick out a popular jazz song, pull up a backing track on Youtube, and go over all the chords you'll
+                need. After some practice, you're ready to play along
+                with the backing track. Don't be afraid to <em>slow down the backing track</em> until you're able to do
+                it full speed. A lot of the fingerings are hard, but
+                with consistant pracice, you'll be playing along in no time, and willhave learned your fretboard!
             </p>
 
         </div>
