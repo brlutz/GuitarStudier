@@ -10,7 +10,7 @@ export class NoteFlashcardComponent implements OnInit {
   name = 'Angular 6';
   marked = false;
   theCheckbox = false;
-
+  count = -1;
 
   octaves = ['3', '4', '5'];
   allOctaves = ['3', '4', '5'];
@@ -55,7 +55,7 @@ export class NoteFlashcardComponent implements OnInit {
 
 
   SightReading() {
-
+    this.count++;
     // Create an SVG renderer and attach it to the DIV element named "boo".
     const div = document.getElementById('boo');
     div.innerHTML = '';
