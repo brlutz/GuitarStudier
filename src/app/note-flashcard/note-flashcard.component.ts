@@ -11,7 +11,7 @@ export class NoteFlashcardComponent implements OnInit {
   marked = false;
   theCheckbox = false;
   count = -1;
-
+  isTreble = true;
   octaves = ['3', '4', '5'];
   allOctaves = ['3', '4', '5'];
   Arr = Array; // Array type captured in a variable
@@ -53,6 +53,18 @@ export class NoteFlashcardComponent implements OnInit {
 
   }
 
+  toggleCleff(e) {
+
+    this.marked = e.target.checked;
+    if (e.target.value === 'true') {
+      this.isTreble = true;
+    } else {
+      this.isTreble = false;
+    }
+
+    this.SightReading();
+  }
+
 
   SightReading() {
     this.count++;
@@ -69,8 +81,12 @@ export class NoteFlashcardComponent implements OnInit {
     // Create a stave of width 400 at position 10, 40 on the canvas.
     const stave = new this.VF.Stave(10, 40, 400);
 
+    let cleff = 'treble';
+    if (!this.isTreble) {
+      cleff = 'bass';
+    }
     // Add a clef and time signature.
-    stave.addClef('treble').addTimeSignature('4/4');
+    stave.addClef(cleff).addTimeSignature('4/4');
 
 
 

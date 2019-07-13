@@ -1,100 +1,116 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-8">
-          <div id="boo"></div>
+  <div class="row">
+    <div class="col-md-8">
+      <div id="boo"></div>
 
-            <div id="counter" class="">Flashcards seen: {{count}}</div>
+      <div id="counter" class="">Flashcards seen: {{count}}</div>
 
-            <div class="">
-                <button id="random" style="width:200px;height:200px" (click)="SightReading()">Press me for Sightreading</button>
-            </div>
+      <div class="">
+        <button id="random" style="width:200px;height:200px" (click)="SightReading()">Press me for Sightreading</button>
+      </div>
 
-            <div>Notes:
-                <span class="col-sm-1" *ngFor="let note of allNotes">
-                    <label> <span class="right-spaced">
-                            <span>{{note}}</span>
-                            <input type="checkbox" checked value='{{note}}' data-md-icheck
-                                (change)="toggleNote($event)" />
-                        </span>
-                    </label>
-
+      <div>Notes:
+        <span class="col-sm-1" *ngFor="let note of allNotes">
+          <label> <span class="right-spaced">
+              <span>{{note}}</span>
+              <input type="checkbox" checked value='{{note}}' data-md-icheck (change)="toggleNote($event)" />
+            </span>
+          </label>
 
 
-                </span>
-            </div>
-            <div> <p> Octaves:</p>
-                <span class="col-sm-1" *ngFor="let octave of allOctaves">
-                    <label>
-                        <span class="right-spaced">
-                            <span>{{octave}} </span>
-                            <input type="checkbox" checked value='{{octave}}' data-md-icheck
-                                (change)="toggleOctave($event)" />
-                        </span>
-                    </label>
-                </span>
-            </div>
 
-        </div>
-        <div class="col-md-4">
-            <h1 class="content-lead">
-                Reading Sheet Music:
-            </h1>
+        </span>
+      </div>
+      <div>
+        <p> Octaves:</p>
+        <span class="col-sm-1" *ngFor="let octave of allOctaves">
+          <label>
+            <span class="right-spaced">
+              <span>{{octave}} </span>
+              <input type="checkbox" checked value='{{octave}}' data-md-icheck (change)="toggleOctave($event)" />
+            </span>
+          </label>
+        </span>
+      </div>
+      <div>
+        Cleff:
+        <label>
+          <span class="right-spaced">
+            <span>Treble </span>
+            <input type="radio" name="cleffs" checked value='treble' data-md-icheck (change)="toggleCleff($event)" />
+            <span>Bass </span>
+            <input type="radio" name="cleffs" value='bass' data-md-icheck (change)="toggleCleff($event)" />
+          </span>
+        </label>
+      </div>
 
-            <div>
-                Spaces in Treble Clef (bottom up):
-                <ul>
-                    <li>F, A, C, E 
-                    </li>
-                    
-                </ul>
-                Lines in Treble Clef (bottom up):
-                <ul>
-                    <li>E, G, B, D, F 
-                    </li>
-                    
-                </ul>
-                Spaces in Bass Clef (bottom up):
-                <ul>
-                    <li>A, C, E, G
-                    </li>
-                    
-                </ul>
-                Lines in Bass Clef (bottom up):
-                <ul>
-                    <li>G, B, D, F, A 
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h2>
-                How to drill sight reading:
-            </h2>
-            <p>
-                Guitar sight reading is an important skill to practice. It has two important purposes, first one is to learn the fretboard. Learning
-                the fretboard allows you to find chord tones when soloing. The second is to be able to read sheet music. Being able to read sheet music will
-                help you learn how to play lead music that may not be written specifically for guitar. You can learn vocal, saxaphone, or any other melodic music!
-            </p>
-            <p class="lead">
-                Practice Tips:
-            </p>
-            <p>
-                At first, just practice finding each note. As you become more comfortable, take note of the notes you miss and take the time to practice them specifically.
-                For an added challange, try to set a metronome and play each note on the beat. Gradually speed this up until you're a sight reading pro!
-            </p>
-            <p>
-                Set yourself a goal in exercises or time. Something like 50 four note sections or 30 minutes a day. Set yourself a
-                schedule,
-                get some free time and practice without distractions. You'll start slow at first, but slowly, with
-                practice, will
-                increase the speed you're able to play these. Getting fast will take practice, but that's all it takes!
-                Practice consistently
-                and you'll see consistent results.
-            </p>
+    <div class="col-md-4">
+      <h1 class="content-lead">
+        Reading Sheet Music:
+      </h1>
 
-        </div>
+      <div>
+        Spaces in Treble Clef (bottom up):
+        <ul>
+          <li>F, A, C, E
+          </li>
+
+        </ul>
+        Lines in Treble Clef (bottom up):
+        <ul>
+          <li>E, G, B, D, F
+          </li>
+
+        </ul>
+        Spaces in Bass Clef (bottom up):
+        <ul>
+          <li>A, C, E, G
+          </li>
+
+        </ul>
+        Lines in Bass Clef (bottom up):
+        <ul>
+          <li>G, B, D, F, A
+          </li>
+
+        </ul>
+      </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>
+        How to drill sight reading:
+      </h2>
+      <p>
+        Guitar sight reading is an important skill to practice. It has two important purposes, first one is to learn the
+        fretboard. Learning
+        the fretboard allows you to find chord tones when soloing. The second is to be able to read sheet music. Being
+        able to read sheet music will
+        help you learn how to play lead music that may not be written specifically for guitar. You can learn vocal,
+        saxaphone, or any other melodic music!
+      </p>
+      <p class="lead">
+        Practice Tips:
+      </p>
+      <p>
+        At first, just practice finding each note. As you become more comfortable, take note of the notes you miss and
+        take the time to practice them specifically.
+        For an added challange, try to set a metronome and play each note on the beat. Gradually speed this up until
+        you're a sight reading pro!
+      </p>
+      <p>
+        Set yourself a goal in exercises or time. Something like 50 four note sections or 30 minutes a day. Set yourself
+        a
+        schedule,
+        get some free time and practice without distractions. You'll start slow at first, but slowly, with
+        practice, will
+        increase the speed you're able to play these. Getting fast will take practice, but that's all it takes!
+        Practice consistently
+        and you'll see consistent results.
+      </p>
+
+    </div>
+  </div>
 </div>
