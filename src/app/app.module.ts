@@ -17,6 +17,7 @@ const appRoutes: Routes = [
   { path: 'jazz', component: JazzComponent, data: { title: 'Jazz' }  },
   { path: 'triads', component: TriadsComponent, data: { title: 'Triads' }  },
   { path: 'sight-reading', component: NoteFlashcardComponent, data: { title: 'Sight Reading' }  },
+  { path: 'home', component: HomeComponent, data: { title: 'Home' }, pathMatch: 'full' },
   { path: '', component: HomeComponent, data: { title: 'Home' }, pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent, data: { title: 'Page Not Found' } }
 ];
