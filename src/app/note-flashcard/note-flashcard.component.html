@@ -1,13 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <div id="boo"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xlg-7">
+              <div id="boo"></div>
+          </div>
+          <div class="col-xlg-5">
+              <div id="counter" class="">Flashcards seen: {{count}}</div>
+      
+              <div class="">
+                <button id="random" style="width:200px;height:200px" (click)="SightReading()">Press me for Sightreading</button>
+              </div>
+          </div>
 
-      <div id="counter" class="">Flashcards seen: {{count}}</div>
 
-      <div class="">
-        <button id="random" style="width:200px;height:200px" (click)="SightReading()">Press me for Sightreading</button>
+        </div>
       </div>
+
 
       <div>Notes:
         <span class="col-sm-1" *ngFor="let note of allNotes">
